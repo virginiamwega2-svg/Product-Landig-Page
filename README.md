@@ -1,28 +1,28 @@
 ﻿# SchedAI Landing Page
 
-This repo contains the marketing site for SchedAI.
-It is a static landing page designed for fast load times, clear messaging, and lead capture.
+This repository contains the marketing website for SchedAI.
+It is a static landing page built for speed, clear messaging, and lead conversion.
 
-## What Is Included
+## Highlights
 
-- Product landing page (`index.html`)
-- Lead form with async submit flow
-- Thank-you conversion page (`thank-you.html`)
-- Privacy and terms pages
-- SEO essentials (`robots.txt`, `sitemap.xml`, social meta tags)
-- Basic analytics event hooks
+- Focused product landing page (`index.html`)
+- Lead capture form with async submission
+- Dedicated post-signup page (`thank-you.html`)
+- Privacy and Terms pages
+- Core SEO setup (`robots.txt`, `sitemap.xml`, social metadata)
+- Analytics event hooks ready for GA4
 - Responsive image variants for better performance
 
-## Stack
+## Tech Stack
 
-- HTML
-- CSS
+- HTML5
+- CSS3
 - Vanilla JavaScript
-- AOS (scroll animations)
-- FormSubmit (form handling)
-- Google Analytics 4 (`gtag` placeholder in place)
+- AOS (Animate On Scroll)
+- FormSubmit (form delivery)
+- Google Analytics 4 (`gtag` integration with placeholder ID)
 
-## Project Layout
+## Project Structure
 
 ```text
 .
@@ -40,61 +40,78 @@ It is a static landing page designed for fast load times, clear messaging, and l
 |- service-worker.js
 ```
 
-## Run Locally
+## Local Development
 
-You can open `index.html` directly, but using a local server is better for testing.
+You can open `index.html` directly, but running a local server is recommended.
 
-Option 1: VS Code Live Server
+### Option 1: VS Code Live Server
 
-1. Install the Live Server extension.
+1. Install the **Live Server** extension.
 2. Right-click `index.html`.
-3. Click `Open with Live Server`.
+3. Select **Open with Live Server**.
 
-Option 2: Python
+### Option 2: Python HTTP Server
 
 ```bash
 python -m http.server 8000
 ```
 
-Then visit `http://localhost:8000`.
+Open: `http://localhost:8000`
 
-## Required Configuration
+## Configuration
 
-1. GA4 Measurement ID
-- In `index.html`, replace `G-REPLACE_MEASUREMENT_ID` with your real ID.
+### GA4 Measurement ID
 
-2. Support email / form endpoint
-- The form is configured for `support@schedai.com`.
-- If this changes, update both `action` and `data-endpoint` in `index.html`.
+Update `index.html` and replace:
 
-## Deploy on Vercel
+```html
+G-REPLACE_MEASUREMENT_ID
+```
 
-1. Push to GitHub.
-2. Import this repo in Vercel.
-3. Use framework preset `Other`.
+with your real GA4 Measurement ID.
+
+### Form Endpoint and Support Email
+
+The form is currently configured for:
+
+```text
+support@schedai.com
+```
+
+If you change this address, update both form attributes in `index.html`:
+
+- `action`
+- `data-endpoint`
+
+## Deployment (Vercel)
+
+1. Push changes to GitHub.
+2. Import this repository in Vercel.
+3. Choose the framework preset: `Other`.
 4. Deploy.
-5. Add custom domain later in `Settings -> Domains` (optional at first).
+5. Optionally add a custom domain in `Settings -> Domains`.
 
-Vercel auto-deploys on new pushes to the connected branch.
+Vercel will automatically redeploy on every push to the connected branch.
 
-## Deployment Checklist
+## Production Readiness Checklist
 
-- GA4 ID replaced
-- FormSubmit activation confirmed
-- `support@schedai.com` inbox monitored
-- Form flow tested end-to-end (`index.html` -> `thank-you.html`)
-- `privacy.html`, `terms.html`, `robots.txt`, and `sitemap.xml` reachable in production
-- Mobile and desktop QA completed
-- Lighthouse checks run (performance, accessibility, SEO)
+- Replace GA4 placeholder ID
+- Confirm FormSubmit activation
+- Verify `support@schedai.com` is monitored
+- Test form flow end-to-end (`index.html` -> `thank-you.html`)
+- Verify `privacy.html`, `terms.html`, `robots.txt`, and `sitemap.xml` in production
+- Run mobile and desktop QA
+- Run Lighthouse checks (performance, accessibility, SEO)
 
 ## Git Workflow
 
 ```bash
 git add .
-git commit -m "Your change summary"
+git commit -m "Describe your changes"
 git push origin main
 ```
 
 ## License
 
-Private project for now. Add a license if you plan to open-source this repository.
+This is currently a private project.
+Add a license before open-sourcing.

@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI Social Media Scheduler</title>
-    <meta name="description" content="SchedAI is an AI-driven social media scheduler that automates posts and provides analytics.">
-    <meta name="theme-color" content="#007bff">
+    <title>SchedAI | AI Social Media Scheduler for Ecommerce Teams</title>
+    <meta name="description" content="SchedAI helps ecommerce teams plan, schedule, and analyze social posts with AI so they can stay consistent and grow faster.">
+    <meta name="theme-color" content="#0d5bd7">
     <link rel="canonical" href="https://schedai.com/" />
-    <meta property="og:title" content="SchedAI - AI Social Media Scheduler">
-    <meta property="og:description" content="Plan and automate your social media with AI.">
+    <meta property="og:title" content="SchedAI | AI Social Media Scheduler for Ecommerce Teams">
+    <meta property="og:description" content="Plan and automate social media content with AI. Built for lean ecommerce and creator-led teams.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://schedai.com/">
     <meta property="og:image" content="https://schedai.com/images/hero.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SchedAI - AI Social Media Scheduler">
-    <meta name="twitter:description" content="Plan and automate your social media with AI.">
+    <meta name="twitter:title" content="SchedAI | AI Social Media Scheduler for Ecommerce Teams">
+    <meta name="twitter:description" content="Plan and automate social media with AI. Built for lean ecommerce and creator-led teams.">
     <meta name="twitter:image" content="https://schedai.com/images/hero.jpg">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="preload" href="images/hero.jpg" as="image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" />
     <script type="application/ld+json">
@@ -27,9 +31,10 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "SchedAI",
+      "url": "https://schedai.com/",
       "operatingSystem": "All",
       "applicationCategory": "SocialMediaManagement",
-      "description": "AI-driven social media scheduler that automates posts and provides analytics.",
+      "description": "AI-driven social media scheduler for ecommerce and creator-led teams.",
       "offers": [
         {
           "@type": "Offer",
@@ -46,6 +51,16 @@
       ]
     }
     </script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.trackEvent = function trackEvent(eventName, properties) {
+        window.dataLayer.push({
+          event: eventName,
+          properties: properties || {},
+          timestamp: new Date().toISOString()
+        });
+      };
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -53,10 +68,11 @@
     <header class="site-header">
         <div class="container">
             <h1 class="logo">SchedAI</h1>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
-            <nav role="navigation" aria-label="Main navigation">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+            <nav id="main-nav" aria-label="Main navigation">
                 <a href="#features">Features</a>
                 <a href="#about">About</a>
+                <a href="#pricing">Pricing</a>
                 <a href="#contact">Contact</a>
             </nav>
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
@@ -65,39 +81,34 @@
 
     <section class="hero" data-aos="fade-up">
         <div class="container">
-            <!-- hero/banner handled via CSS background; image tag removed for performance -->
-            <h2>Plan. Automate. Grow Your Presence</h2>
-            <p>Use AI to schedule posts, analyze engagement, and keep your brand active across platforms.</p>
-            <a href="#contact" class="btn primary">Get Started</a>
+            <h2>AI Scheduling for Ecommerce Teams That Need Daily Content</h2>
+            <p>Plan, publish, and optimize posts in one place so your lean team can stay consistent without extra workload.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn primary" data-track="start_free_click" data-track-location="hero">Start Free</a>
+                <a href="mailto:virginiamwega2@gmail.com?subject=SchedAI%20Demo%20Request" class="btn btn-secondary" data-track="book_demo_click" data-track-location="hero">Book Demo</a>
+            </div>
+            <p class="hero-trust">Free plan available. No credit card required.</p>
         </div>
     </section>
 
     <section id="features" class="features">
         <div class="container">
             <h2>Features</h2>
-            <!-- you can use small illustrative images/icons for each feature or keep emoji text -->
             <div class="feature-list">
-                <!-- example icon: <img src="feature.png" alt="Automated"> -->
                 <div class="feature-item" data-aos="fade-up">
-                    <a href="#features" class="feature-link">
-                        <div class="feature-icon"><img src="images/features.png" alt="Automated" width="48" height="48"></div>
-                        <h3>Automated</h3>
-                        <p>AI schedules posts at optimal times for engagement.</p>
-                    </a>
+                    <div class="feature-icon"><img src="images/features.png" alt="" aria-hidden="true" width="48" height="48"></div>
+                    <h3>Automated Planning</h3>
+                    <p>AI suggests publish windows based on your audience engagement trends.</p>
                 </div>
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-                    <a href="#features" class="feature-link">
-                        <div class="feature-icon"><img src="images/icon-insightful.png" alt="Insightful" width="48" height="48"></div>
-                        <h3>Insightful</h3>
-                        <p>Analytics show you what content performs best.</p>
-                    </a>
+                    <div class="feature-icon"><img src="images/icon-insightful.png" alt="" aria-hidden="true" width="48" height="48"></div>
+                    <h3>Actionable Insights</h3>
+                    <p>Track top-performing posts and turn analytics into your next weekly content plan.</p>
                 </div>
                 <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#features" class="feature-link">
-                        <div class="feature-icon"><img src="images/flexible.png" alt="Flexible" width="48" height="48"></div>
-                        <h3>Flexible</h3>
-                        <p>Support for all major social media platforms.</p>
-                    </a>
+                    <div class="feature-icon"><img src="images/flexible.png" alt="" aria-hidden="true" width="48" height="48"></div>
+                    <h3>Lean Team Friendly</h3>
+                    <p>Use one workflow to manage campaigns across your connected social channels.</p>
                 </div>
             </div>
         </div>
@@ -108,41 +119,39 @@
             <h2>Why SchedAI?</h2>
             <!-- optional team or office photo -->
             <img src="images/about.jpg" alt="Our team at work" class="about-photo" loading="lazy" decoding="async" width="1200" height="800">
-            <p>SchedAI leverages machine learning to take the guesswork out of social media posting. Created by marketers and developers, it helps influencers and brands maintain a consistent, data-driven presence online.</p>
+            <p>SchedAI is built for ecommerce operators and creator-led brands that need predictable posting without adding more team hours. Our workflow combines scheduling, approvals, and analytics so you can move from idea to published content faster.</p>
         </div>
     </section>
 
     <section id="integrations" class="integrations" data-aos="fade-up">
         <div class="container">
             <h2>Integrations</h2>
-            <p>Works with:</p>
-            <!-- put real partner/client logos inside the div below -->
+            <p>Currently supports:</p>
             <div class="logo-list">
                 <img src="images/facebook.svg" alt="Facebook logo" loading="lazy" width="24" height="24" />
                 <img src="images/instagram.png" alt="Instagram logo" loading="lazy" width="48" height="48" />
-                <!-- Add more logos as needed -->
             </div>
+            <p>LinkedIn and X integrations are in progress.</p>
         </div>
     </section>
 
     <section class="screenshots" data-aos="fade-up">
         <div class="container">
             <h2>See it in action</h2>
-            <!-- replace this with a real UI screenshot or product photo -->
-            <img src="images/screenshot.png" alt="SchedAI dashboard screenshot" loading="lazy" decoding="async" width="6009" height="3756" />
+            <img src="images/screenshot.png" alt="SchedAI dashboard screenshot" loading="lazy" decoding="async" width="1200" height="750" />
         </div>
     </section>
 
     <section id="testimonials" class="testimonials" data-aos="fade-up">
         <div class="container">
-            <h2>What Our Users Say</h2>
+            <h2>What Pilot Customers Say</h2>
             <figure>
-                <img src="images/jane.jpg" alt="Jane Doe" class="testimonial-avatar" data-aos="fade-up" loading="lazy" decoding="async" width="600" height="750">
-                <blockquote>"SchedAI saved us hours each week." - Jane Doe, Social Manager</blockquote>
+                <blockquote>"Our posting cadence stayed consistent for the first time without adding more team hours."</blockquote>
+                <figcaption>Jordan L., Marketing Lead, 6-person DTC skincare team</figcaption>
             </figure>
             <figure>
-                <img src="images/john.jpg" alt="John Smith" class="testimonial-avatar" data-aos="fade-up" data-aos-delay="100" loading="lazy" decoding="async" width="600" height="900">
-                <blockquote>"The analytics are a game-changer." - John Smith, Content Creator</blockquote>
+                <blockquote>"The analytics made our weekly planning faster and way less guesswork-driven."</blockquote>
+                <figcaption>Maya R., Founder, creator-led apparel brand</figcaption>
             </figure>
         </div>
     </section>
@@ -158,7 +167,7 @@
                         <li>Basic scheduling</li>
                         <li>1 social account</li>
                     </ul>
-                    <a href="#contact" class="btn">Get Started</a>
+                    <a href="#contact" class="btn" data-track="start_free_click" data-track-location="pricing_free">Start Free</a>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Pro</h3>
@@ -168,7 +177,7 @@
                         <li>Up to 5 accounts</li>
                         <li>Analytics</li>
                     </ul>
-                    <a href="#contact" class="btn primary">Choose Pro</a>
+                    <a href="#contact" class="btn primary" data-track="start_pro_click" data-track-location="pricing_pro">Start Pro</a>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="200">
                     <h3>Enterprise</h3>
@@ -177,7 +186,7 @@
                         <li>Custom solutions</li>
                         <li>Priority support</li>
                     </ul>
-                    <a href="#contact" class="btn">Contact Sales</a>
+                    <a href="#contact" class="btn" data-track="contact_sales_click" data-track-location="pricing_enterprise">Contact Sales</a>
                 </div>
             </div>
         </div>
@@ -195,20 +204,25 @@
                 <div id="faq-answer-2" class="faq-answer" aria-hidden="true" hidden>Yes, Pro and Enterprise plans support multiple social profiles.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Is there a free trial?</button>
-                <div id="faq-answer-3" class="faq-answer" aria-hidden="true" hidden>A 14-day free trial is available with full features.</div>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Do I need a credit card to start?</button>
+                <div id="faq-answer-3" class="faq-answer" aria-hidden="true" hidden>No. You can start on the free plan and upgrade when you are ready.</div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact" data-aos="fade-up">
         <div class="container">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
+            <h2>Create Your Free Account</h2>
+            <form id="contact-form" action="https://formsubmit.co/virginiamwega2@gmail.com" method="post" data-endpoint="https://formsubmit.co/ajax/virginiamwega2@gmail.com" novalidate>
                 <label for="email">Email address</label>
                 <input type="email" id="email" name="email" aria-describedby="emailHelp" required />
-                <small id="emailHelp">We&rsquo;ll never share your email.</small>
-                <button type="submit" class="btn">Subscribe</button>
+                <input type="hidden" name="_subject" value="New SchedAI signup lead" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="source_page" value="SchedAI Landing Page" />
+                <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <small id="emailHelp">We&rsquo;ll send account setup instructions and never share your email.</small>
+                <button type="submit" class="btn" data-track="create_account_submit_click" data-track-location="contact_form">Create Free Account</button>
             </form>
             <p id="form-message" class="message" role="status" aria-live="polite" tabindex="-1"></p>
         </div>

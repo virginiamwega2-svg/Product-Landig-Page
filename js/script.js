@@ -1,15 +1,74 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const emitEvent = (eventName, properties = {}) => {
+        if (typeof window.trackEvent === 'function') {
+            window.trackEvent(eventName, properties);
+        }
+    };
+
+    document.querySelectorAll('[data-track]').forEach((element) => {
+        element.addEventListener('click', () => {
+            emitEvent(element.dataset.track, {
+                location: element.dataset.trackLocation || 'unknown',
+                label: element.textContent ? element.textContent.trim() : ''
+            });
+        });
+    });
+
     // contact form handling
     const form = document.getElementById('contact-form');
     const messageEl = document.getElementById('form-message');
     if (form) {
-        form.addEventListener('submit', (e) => {
+        const submitButton = form.querySelector('button[type="submit"]');
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = form.email.value;
-            if (email) {
-                messageEl.textContent = `Thanks for subscribing, ${email}!`;
+            const email = form.email.value.trim();
+            if (!email || !form.checkValidity()) {
+                messageEl.textContent = 'Please enter a valid email address.';
+                messageEl.classList.add('error');
+                messageEl.classList.remove('success');
                 messageEl.focus();
+                emitEvent('lead_submit_invalid', { location: 'contact_form' });
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting...';
+            }
+
+            const endpoint = form.dataset.endpoint || form.getAttribute('action');
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { Accept: 'application/json' }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Lead submission failed with status ${response.status}`);
+                }
+
+                messageEl.textContent = `Thanks, ${email}. We will send your free account setup details shortly.`;
+                messageEl.classList.add('success');
+                messageEl.classList.remove('error');
+                emitEvent('lead_submit_success', { location: 'contact_form' });
                 form.reset();
+            } catch (error) {
+                messageEl.textContent = 'Signup failed. Please try again or email virginiamwega2@gmail.com.';
+                messageEl.classList.add('error');
+                messageEl.classList.remove('success');
+                emitEvent('lead_submit_error', {
+                    location: 'contact_form',
+                    reason: error instanceof Error ? error.message : 'unknown'
+                });
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Create Free Account';
+                }
+                messageEl.focus();
             }
         });
     }
@@ -23,23 +82,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const nav = document.querySelector('.site-header nav');
     if (menuToggle && nav) {
-        const closeMenu = () => {
+        const getFocusableInNav = () =>
+            Array.from(nav.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])'))
+                .filter((el) => !el.hasAttribute('disabled'));
+        const isMenuOpen = () => nav.classList.contains('open');
+
+        const closeMenu = ({ restoreFocus = false } = {}) => {
             menuToggle.setAttribute('aria-expanded', 'false');
             nav.classList.remove('open');
+            if (restoreFocus) {
+                menuToggle.focus();
+            }
         };
 
         menuToggle.addEventListener('click', () => {
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', String(!expanded));
             nav.classList.toggle('open');
+            if (!expanded) {
+                const firstLink = getFocusableInNav()[0];
+                if (firstLink) firstLink.focus();
+            }
         });
 
         nav.querySelectorAll('a').forEach((link) => {
-            link.addEventListener('click', closeMenu);
+            link.addEventListener('click', () => closeMenu());
         });
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
+                closeMenu({ restoreFocus: true });
+            }
+            if (event.key === 'Tab' && isMenuOpen()) {
+                const focusable = getFocusableInNav();
+                if (!focusable.length) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                }
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!isMenuOpen()) return;
+            const target = event.target;
+            if (!(target instanceof Node)) return;
+            if (!nav.contains(target) && !menuToggle.contains(target)) {
                 closeMenu();
             }
         });

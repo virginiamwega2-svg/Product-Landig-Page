@@ -1,16 +1,17 @@
-const CACHE_NAME = 'schedai-cache-v3';
+const CACHE_NAME = 'schedai-cache-v4';
 const APP_SHELL_URLS = [
-  '/',
-  '/index.html',
-  '/privacy.html',
-  '/terms.html',
-  '/css/style.css',
-  '/js/script.js',
-  '/images/hero.jpg',
-  '/images/favicon.svg',
-  '/images/favicon-32x32.png',
-  '/images/apple-touch-icon.png'
-];
+  '.',
+  'index.html',
+  'privacy.html',
+  'terms.html',
+  'css/style.css',
+  'js/script.js',
+  'images/hero.jpg',
+  'images/favicon.svg',
+  'images/favicon-32x32.png',
+  'images/apple-touch-icon.png'
+].map((path) => new URL(path, self.registration.scope).toString());
+const APP_FALLBACK_URL = new URL('index.html', self.registration.scope).toString();
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -60,7 +61,7 @@ async function networkFirst(request) {
     return networkResponse;
   } catch {
     const cachedResponse = await caches.match(request);
-    return cachedResponse || caches.match('/index.html');
+    return cachedResponse || caches.match(APP_FALLBACK_URL);
   }
 }
 

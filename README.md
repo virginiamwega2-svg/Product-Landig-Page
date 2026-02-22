@@ -1,127 +1,100 @@
-# SchedAI Landing Page
+﻿# SchedAI Landing Page
 
-Production-ready marketing landing page for **SchedAI**, built as a fast static site with lead capture, SEO essentials, analytics hooks, and Vercel deployment support.
+This repo contains the marketing site for SchedAI.
+It is a static landing page designed for fast load times, clear messaging, and lead capture.
 
-## Overview
+## What Is Included
 
-This project is a static website focused on conversion:
+- Product landing page (`index.html`)
+- Lead form with async submit flow
+- Thank-you conversion page (`thank-you.html`)
+- Privacy and terms pages
+- SEO essentials (`robots.txt`, `sitemap.xml`, social meta tags)
+- Basic analytics event hooks
+- Responsive image variants for better performance
 
-- Clear value proposition and pricing sections
-- Lead capture form with AJAX submission
-- Thank-you conversion page
-- SEO basics (`canonical`, Open Graph, Twitter meta, `robots.txt`, `sitemap.xml`)
-- Event tracking hooks for analytics
-- Responsive, optimized image delivery
+## Stack
 
-## Tech Stack
-
-- HTML5
-- CSS3
+- HTML
+- CSS
 - Vanilla JavaScript
-- AOS (Animate On Scroll)
-- FormSubmit (lead form endpoint)
-- Google Analytics 4 (via `gtag`, ID placeholder included)
+- AOS (scroll animations)
+- FormSubmit (form handling)
+- Google Analytics 4 (`gtag` placeholder in place)
 
-## Project Structure
+## Project Layout
 
 ```text
 .
-├── css/
-│   └── style.css
-├── images/
-├── js/
-│   └── script.js
-├── index.html
-├── thank-you.html
-├── privacy.html
-├── terms.html
-├── robots.txt
-└── sitemap.xml
+|- css/
+|  |- style.css
+|- images/
+|- js/
+|  |- script.js
+|- index.html
+|- thank-you.html
+|- privacy.html
+|- terms.html
+|- robots.txt
+|- sitemap.xml
+|- service-worker.js
 ```
 
-## Local Development
+## Run Locally
 
-Because this is a static site, you can open `index.html` directly in a browser.  
-Recommended: use a local server for cleaner testing.
+You can open `index.html` directly, but using a local server is better for testing.
 
-### Option 1: VS Code Live Server
+Option 1: VS Code Live Server
 
-1. Install **Live Server** extension.
+1. Install the Live Server extension.
 2. Right-click `index.html`.
-3. Click **Open with Live Server**.
+3. Click `Open with Live Server`.
 
-### Option 2: Python HTTP server
+Option 2: Python
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open: `http://localhost:8000`
+Then visit `http://localhost:8000`.
 
-## Configuration
+## Required Configuration
 
-### 1. Analytics ID
+1. GA4 Measurement ID
+- In `index.html`, replace `G-REPLACE_MEASUREMENT_ID` with your real ID.
 
-In `index.html`, replace:
+2. Support email / form endpoint
+- The form is configured for `support@schedai.com`.
+- If this changes, update both `action` and `data-endpoint` in `index.html`.
 
-```html
-G-REPLACE_MEASUREMENT_ID
-```
+## Deploy on Vercel
 
-with your real GA4 Measurement ID.
+1. Push to GitHub.
+2. Import this repo in Vercel.
+3. Use framework preset `Other`.
+4. Deploy.
+5. Add custom domain later in `Settings -> Domains` (optional at first).
 
-### 2. Lead Form Destination
+Vercel auto-deploys on new pushes to the connected branch.
 
-The form is currently configured to send to:
+## Deployment Checklist
 
-```text
-support@schedai.com
-```
-
-using FormSubmit.  
-If you change support email, update both form `action` and `data-endpoint` in `index.html`.
-
-## Deployment (Vercel)
-
-1. Push code to GitHub.
-2. Import repository in Vercel (`Framework: Other`).
-3. Deploy.
-4. Optionally add custom domain later in `Project Settings -> Domains`.
-
-Vercel auto-deploys on every push to the connected branch.
-
-## SEO and Indexing
-
-Included:
-
-- `robots.txt`
-- `sitemap.xml`
-- Canonical URL and social metadata
-
-After deploying to production:
-
-1. Submit `sitemap.xml` in Google Search Console.
-2. Add Search Console site verification token (if required).
-3. Verify social preview image rendering.
-
-## Production Checklist
-
-- Replace GA4 placeholder ID
-- Confirm FormSubmit activation email is completed
-- Verify `support@schedai.com` inbox monitoring
-- Test full form flow (`index.html` -> `thank-you.html`)
-- Validate links, privacy/terms pages, and mobile layout
-- Run Lighthouse performance and accessibility checks
+- GA4 ID replaced
+- FormSubmit activation confirmed
+- `support@schedai.com` inbox monitored
+- Form flow tested end-to-end (`index.html` -> `thank-you.html`)
+- `privacy.html`, `terms.html`, `robots.txt`, and `sitemap.xml` reachable in production
+- Mobile and desktop QA completed
+- Lighthouse checks run (performance, accessibility, SEO)
 
 ## Git Workflow
 
 ```bash
 git add .
-git commit -m "Describe update"
+git commit -m "Your change summary"
 git push origin main
 ```
 
 ## License
 
-Private project. Update this section with your preferred license before open-sourcing.
-
+Private project for now. Add a license if you plan to open-source this repository.

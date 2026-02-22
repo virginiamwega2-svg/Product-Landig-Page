@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 messageEl.classList.remove('error');
                 emitEvent('lead_submit_success', { location: 'contact_form' });
                 form.reset();
+                window.location.assign('thank-you.html');
             } catch (error) {
-                messageEl.textContent = 'Signup failed. Please try again or email virginiamwega2@gmail.com.';
+                messageEl.textContent = 'Signup failed. Please try again or email support@schedai.com.';
                 messageEl.classList.add('error');
                 messageEl.classList.remove('success');
                 emitEvent('lead_submit_error', {

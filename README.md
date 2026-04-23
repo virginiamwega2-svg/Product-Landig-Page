@@ -1,90 +1,104 @@
-# SchedAI Landing Page
+# Product Landing Page
 
-This repository contains the SchedAI product landing page.
-It is a static site focused on clear messaging, lead capture, and technical SEO.
+An engaging, responsive, and modern product landing page built with **HTML**, **CSS**, and **JavaScript**. This project demonstrates proficiency in front-end development, including semantic markup, modular styling, interactivity, and accessibility.
 
-## What This Project Includes
+---
 
-- Main landing page (`index.html`)
-- Lead capture form with async submission (`js/script.js`)
-- Thank-you page after signup (`thank-you.html`)
-- Privacy and terms pages (`privacy.html`, `terms.html`)
-- Technical SEO files (`robots.txt`, `sitemap.xml`)
-- Responsive image assets for better performance
+##  Demo
 
-## Stack
+[Live Demo](https://product-landig-page.vercel.app/)  
+[View on GitHub](https://github.com/virginiamwega2-svg/Product-Landing-Page)
 
-- HTML
-- CSS
-- Vanilla JavaScript
-- Google Analytics 4 (`gtag`)
-- FormSubmit (for form delivery)
-- Vercel (deployment)
+---
 
-## Project Structure
+##  Features
 
-```text
-.
-|- css/
-|  |- style.css
-|- images/
-|- js/
-|  |- script.js
-|- index.html
-|- thank-you.html
-|- privacy.html
-|- terms.html
-|- robots.txt
-|- sitemap.xml
-|- service-worker.js
+- **Responsive Design:** Mobile-first approach for optimal experience on all devices
+- **Semantic HTML:** Improved SEO and accessibility
+- **Interactive Elements:** Smooth navigation, modals, and engaging CTAs
+- **Custom CSS Animations:** Eye-catching transitions and effects
+- **Modern JavaScript:** Clean, modular scripts for UI behavior
+- **Accessibility (a11y):** Keyboard and screen-reader friendly
+- **Performance Optimized:** Fast loading, minimal dependencies
+
+---
+
+##  Skills Demonstrated
+
+- Professional use of HTML5, CSS3, and ES6+ JavaScript
+- Responsive layouts with Flexbox and Grid
+- Clean, maintainable, modular code
+- DOM manipulation and event handling
+- Cross-browser compatibility
+- Version control with Git
+
+---
+
+##  Screenshots
+
+<!-- Add your actual screenshots in the /screenshots directory -->
+| Desktop | Mobile |
+| ------- | ------ |
+| ![Desktop screenshot](screenshots/desktop.png) | ![Mobile screenshot](screenshots/mobile.png) |
+
+---
+
+##  Tech Stack
+
+- **HTML5** (47.3%)
+- **JavaScript** (29%)
+- **CSS3** (23.7%)
+
+---
+
+##  Getting Started
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/virginiamwega2-svg/Product-Landing-Page.git
+   cd Product-Landing-Page
+   ```
+
+2. **Open `index.html` in your browser**
+   - Or view the [Live Demo](https://product-landig-page.vercel.app/)
+
+---
+
+##  Project Structure
+
+```
+/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   ├── images/
+│   └── ...
+├── screenshots/
+│   ├── desktop.png
+│   └── mobile.png
+└── README.md
 ```
 
-## Run Locally
+---
 
-You can open `index.html` directly, but a local server is recommended.
+##  Why This Project?
 
-### Option 1: VS Code Live Server
+This landing page simulates a real-world product scenario, demonstrating production-ready UI skills expected from a professional front-end engineer.
 
-1. Install the Live Server extension.
-2. Right-click `index.html`.
-3. Click `Open with Live Server`.
+- **User-focused design for conversion**
+- **Implements modern front-end best practices**
+- **Easily adaptable for real products**
 
-### Option 2: Python
+---
 
-```bash
-python -m http.server 8000
-```
+##  About Me
 
-Then open: `http://localhost:8000`
+I'm passionate about building beautiful, user-centric digital experiences. If you like what you see, let’s connect!
 
-## Configuration Notes
 
-- GA4 is configured in `index.html` with measurement ID `G-525497869`.
-- Form submissions are sent to `support@schedai.com`.
-- Canonical and sitemap currently use `https://schedai.com/`. Update if your production domain changes.
+## 📝 License
 
-## Deploy on Vercel
-
-1. Push the project to GitHub.
-2. Import the repository into Vercel.
-3. Use framework preset `Other`.
-4. Deploy.
-5. Add a custom domain in `Settings -> Domains` when ready.
-
-Vercel will auto-deploy new pushes to the connected branch.
-
-## Final QA Checklist
-
-- Submit the live form and confirm email delivery
-- Confirm redirect to `thank-you.html`
-- Check GA4 Realtime for conversion events
-- Verify `robots.txt` and `sitemap.xml` are reachable
-- Test mobile and desktop layout/behavior
-
-## Git Workflow
-
-```bash
-git add .
-git commit -m "Describe your change"
-git push origin main
-```
+This project is open-source and available under the [MIT License](LICENSE).
